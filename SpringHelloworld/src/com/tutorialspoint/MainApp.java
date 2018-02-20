@@ -9,7 +9,7 @@ public class MainApp {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 	      ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-	      HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+	      HelloWorld obj = (HelloWorld) context.getBean("hellooooo World");
 	      obj.getMessage();
 	   }
 
