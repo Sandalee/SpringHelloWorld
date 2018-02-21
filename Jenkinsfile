@@ -1,24 +1,18 @@
-pipeline{
-
-	agent {
-		dockerfile true
-	}
-	stages{
-		stage('Build'){
-			steps{
-					
-				echo 'building...!'
-				sh 'make'
-				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
-
-			}
-		}
-		stage('Deploy'){
-			steps{
-				echo 'deploying...'
-				
-			}
-		}
+node{
+	def app	
+	stage('clone repository'){
+		checkout scm
 	}
 
+	stage('Build Image'){
+		app = docker.build("SpringHelloworld/src/")
+	}
+
+	stage('push image'){
+		docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
+			app.push("${env.BUILD_NUMBER}")
+			app.push("latest")
+		}
+	}
 }
+
