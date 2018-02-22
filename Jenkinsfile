@@ -19,7 +19,7 @@ pipeline{
 
 		stage('Build Image'){
 			steps{
-				app = docker.build("SpringHelloworld/src/")
+				app = docker.build("SpringHelloworld")
 			}
 			
 		}
