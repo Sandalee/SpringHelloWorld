@@ -12,7 +12,7 @@ node{
 
 		stage('Build Source'){
 			
-                		sh 'mvn package' 
+                		#sh 'mvn package' 
                 		archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             		
 		
