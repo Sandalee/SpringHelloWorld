@@ -12,7 +12,7 @@ node{
 
 		stage('Build Source'){
 			
-                		sh 'make' 
+                		sh 'mvn package' 
                 		archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
             		
 		
@@ -20,7 +20,7 @@ node{
 
 		stage('Build Image'){
 			
-				app = docker.build("SpringHelloworld")
+				app = docker.build("SpringHelloworld/src")
 			
 			
 		}
