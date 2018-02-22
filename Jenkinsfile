@@ -3,7 +3,10 @@ pipeline{
 	stages{
 	
 		stage('clone repository'){
-			checkout scm
+			steps{
+				checkout scm
+			}
+			
 		}
 
 		stage('Build Source'){
@@ -15,14 +18,20 @@ pipeline{
 		}
 
 		stage('Build Image'){
-			app = docker.build("SpringHelloworld/src/")
+			steps{
+				app = docker.build("SpringHelloworld/src/")
+			}
+			
 		}
 
 		stage('push image'){
-			docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
+			steps{
+				docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
 				app.push("${env.BUILD_NUMBER}")
 				app.push("latest")
+				}
 			}
+			
 		}
 	
 	}	
