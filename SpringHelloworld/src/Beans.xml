@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id = "helloWorld" class = "com.tutorialspoint.HelloWorld">
-      <property name = "message" value = "Hello World!"/>
+      <property name = "message" value = "Hellooo World!"/>
    </bean>
 	
 </beans>
