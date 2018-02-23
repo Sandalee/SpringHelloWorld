@@ -14,11 +14,10 @@ pipeline{
 		stage('Build Source'){
 			steps{
 				echo 'building...'
+				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
 			}	
 		}
 
-
-	
 	}	
 	
 }
