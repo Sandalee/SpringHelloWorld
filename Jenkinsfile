@@ -16,7 +16,7 @@ pipeline{
 		stage('Build Source'){
 			steps{
 				withMaven(maven : 'maven_3_5_0'){
-						sh 'mvn clean compile'
+						sh 'mvn clean package'
 						archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
 				
 				}
