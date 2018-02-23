@@ -8,16 +8,12 @@ pipeline{
 			steps{
 				checkout scm
 			}
-				
-			
-			
+					
 		}
 
 		stage('Build Source'){
 			steps{
 				echo 'building...'
-				
-				}
 			}	
 		}
 
